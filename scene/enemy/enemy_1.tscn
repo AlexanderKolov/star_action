@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://broeesano3hqw"]
+
+[ext_resource type="Script" uid="uid://cti2ai1hwbimb" path="res://scripts/enemy/enemy_1.gd" id="1_fno8v"]
+[ext_resource type="Texture2D" uid="uid://dw2y8btybva0t" path="res://kenney_space-shooter-redux-2D/PNG/Enemies/enemyBlack1.png" id="2_52uuo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fpk2d"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52uuo"]
+radius = 264.68283
+
+[node name="enemy_1" type="CharacterBody2D"]
+script = ExtResource("1_fno8v")
+speed = 450.0
+
+[node name="EnemyBlack1" type="Sprite2D" parent="."]
+rotation = -1.5707964
+scale = Vector2(0.26190478, 0.26190478)
+texture = ExtResource("2_52uuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_fpk2d")
+
+[node name="look at" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="gun point" type="Marker2D" parent="look at"]
+
+[node name="follow" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="follow"]
+shape = SubResource("CircleShape2D_52uuo")
+
+[connection signal="body_entered" from="follow" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="follow" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp20ao0too6hn"]
+
+[ext_resource type="PackedScene" uid="uid://domhifsa01xl3" path="res://scene/BG.tscn" id="1_0khfh"]
+[ext_resource type="Script" uid="uid://wcuq3hm4yfuo" path="res://scripts/mainmenu.gd" id="1_h8uk4"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_h8uk4")
+
+[node name="new game" type="Button" parent="."]
+offset_left = 325.0
+offset_top = 74.0
+offset_right = 755.0
+offset_bottom = 269.0
+theme_override_font_sizes/font_size = 30
+text = "NEW GAME"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 331.0
+offset_top = 350.0
+offset_right = 761.0
+offset_bottom = 545.0
+theme_override_font_sizes/font_size = 30
+text = "EXIT
+"
+
+[node name="BG" parent="." instance=ExtResource("1_0khfh")]
+scroll_speed = Vector2(-300, 0)
+
+[connection signal="pressed" from="new game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

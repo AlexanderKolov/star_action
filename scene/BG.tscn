@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://domhifsa01xl3"]
+
+[ext_resource type="Script" uid="uid://db17mfyhxgsao" path="res://scripts/BG.gd" id="1_yuoxb"]
+[ext_resource type="Texture2D" uid="uid://cbjowtrm67a44" path="res://kenney_space-shooter-redux-2D/PNG/Large 1024x1024/Blue Nebula/Blue_Nebula_01-1024x1024.png" id="2_1wg3x"]
+
+[node name="BG" type="ParallaxBackground"]
+script = ExtResource("1_yuoxb")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 648)
+
+[node name="BlueNebula011024x1024" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(576, 323.99997)
+scale = Vector2(1.125, 0.6328125)
+texture = ExtResource("2_1wg3x")

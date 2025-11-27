@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5a2c1xmr52ge"]
+
+[ext_resource type="Script" uid="uid://byx18gcpsawsv" path="res://scripts/level_1.gd" id="1_3flxk"]
+[ext_resource type="PackedScene" uid="uid://dy6n4de7lf6g8" path="res://scene/UI.tscn" id="2_xesoj"]
+[ext_resource type="Texture2D" uid="uid://cbjowtrm67a44" path="res://kenney_space-shooter-redux-2D/PNG/Large 1024x1024/Blue Nebula/Blue_Nebula_01-1024x1024.png" id="3_53ndp"]
+[ext_resource type="PackedScene" uid="uid://eugyf7c8p75t" path="res://scene/player.tscn" id="4_xesoj"]
+[ext_resource type="PackedScene" uid="uid://dgsq781bmap5r" path="res://scene/black_hole.tscn" id="5_53ndp"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_3flxk")
+world_bounds = Rect2(-3000, -3000, 6000, 6000)
+
+[node name="black_hole" parent="." instance=ExtResource("5_53ndp")]
+position = Vector2(808, 292)
+
+[node name="player" parent="." instance=ExtResource("4_xesoj")]
+position = Vector2(52, 324)
+speed = 300.0
+hp = null
+shild = null
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_xesoj")]
+
+[node name="BG" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+motion_mirroring = Vector2(1152, 648)
+
+[node name="BlueNebula011024x1024" type="Sprite2D" parent="BG/ParallaxLayer"]
+position = Vector2(576, 323.99997)
+scale = Vector2(1.125, 0.6328125)
+texture = ExtResource("3_53ndp")
